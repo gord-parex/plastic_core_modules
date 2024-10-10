@@ -672,7 +672,59 @@ class CleanLogData:
                             'X_COORD',
                             'ROP'
                             ]
+    
+    def pare_porosity_curves(df, remove_caliper_data=True):
         
+        caliper_columns = ['DRHO', 'CALI']
+        
+        df = df.copy() #Avoid operations on a view
+        columns = df.columns
+        
+        priority_density_curves = ['PHID', 'PHISS', 'PHIDSS_RHOB_CALC', 'RHOB']
+        priority_neutron_curves = ['NPHI', 'NPOR', 'NPSS', 'NPLS', 'NPDL']
+        
+        for curve in priority_density_curves:
+            if curve in columns:
+                match_porosity_curve = curve
+                print(f'Matched density curve is {match_porosity_curve}')
+                break
+            
+        #Isolate columns to delete from dataframe
+        delete_porosity_cols = priority_density_curves.copy()
+        delete_porosity_cols.remove(match_porosity_curve)
+        delete_porosity_cols = [col for col in delete_porosity_cols if col in columns]
+        print(f'Delete porosity columns {delete_porosity_cols}')
+        
+        df = df.drop(delete_porosity_cols, axis=1)
+        
+        for curve in priority_neutron_curves:
+            if curve in columns:
+                match_neutron_curve = curve
+                print(f'Matched neutron curve is {match_neutron_curve}')
+                break
+        
+        #Isolate columns to delete from dataframe
+        delete_neutron_cols = priority_neutron_curves.copy()
+        delete_neutron_cols.remove(match_neutron_curve)
+        delete_neutron_cols = [col for col in delete_neutron_cols if col in columns]
+        print(f'Delete neutron columns {delete_neutron_cols}')
+        
+        df = df.drop(delete_neutron_cols, axis=1)
+        
+        #Remove caliper columns DRHO and CALI
+        if remove_caliper_data:
+            for curve in caliper_columns:
+                try:
+                    df = df.drop([curve], axis=1)
+                except KeyError as e:
+                    print(f'The curve {curve} was not found in the table. {e}')
+                    continue
+        
+        print(df.columns)
+        
+        return df
+        
+    
     def mixed_type_aggregation(df, numeric_agg_type='mean'):
         all_columns = list(df.columns)
         numeric_columns = list(df.select_dtypes(include=[np.number]).columns)

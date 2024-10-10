@@ -28,48 +28,48 @@ logs_dir = os.getcwd() + r'\Logs' #Logs directory is subfolder of current workin
 
 
 #To assign each curve to a bin, with the particular parameters of the curve
-curve_to_category_dict = {'curve_category_1a': {'name': 'Gamma Ray', 'bin': 'Bin01', 'xmin': 0, 'xmax': 200, 'unit': 'gapi', 'color':'green', 'fill': True, 'fill_direction': 'right_to_left', 'fill_alpha': 1, 'curve_mnems':['GR', 'GR1']},
-            'curve_category_01b': {'name': 'Vshale', 'bin': 'Bin01', 'xmin': 0, 'xmax': 1, 'unit': 'frac', 'color': 'black', 'fill': False, 'fill_direction': 'right_to_left', 'fill_alpha': 1, 'curve_mnems': ['VSH']},
-            'curve_category_01c': {'name': 'Open Perforation', 'bin': 'Bin01', 'xmin': 10, 'xmax': 0, 'unit': 'Flag', 'color': 'black', 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 1, 'curve_mnems': ['Perf_open']},
-            'curve_category_01d': {'name': 'Closed Perforation', 'bin': 'Bin01', 'xmin': 10, 'xmax': 0, 'unit': 'Flag', 'color': 'red', 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 1, 'curve_mnems': ['Perf_closed']},
-            'curve_category_02a': {'name': 'Shallow Resistivity', 'bin': 'Bin02', 'xmin': 0.2, 'xmax': 20000, 'unit': 'ohm.m', 'color': 'grey', 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['RES', 'RESS', 'RESM']},
-            'curve_category_02b': {'name': 'Deep Resistivity', 'bin': 'Bin02', 'xmin': 0.2, 'xmax': 20000, 'unit': 'ohm.m', 'color': 'black', 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['RESD']},
-            'curve_category_03a': {'name': 'Neutron Porosity', 'bin': 'Bin03', 'xmin': -0.15, 'xmax': 0.45, 'unit': 'fraction', 'color': 'blue','fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['NPHI', 'NPOR', 'NPSS', 'NPLS', 
+curve_to_category_dict = {'curve_category_1a': {'name': 'Gamma Ray', 'bin': 'Bin01', 'xmin': 0, 'xmax': 200, 'unit': 'gapi', 'color':'green', 'line_width':1.5, 'fill': True, 'fill_direction': 'right_to_left', 'fill_alpha': 1, 'curve_mnems':['GR', 'GR1']},
+            'curve_category_01b': {'name': 'Vshale', 'bin': 'Bin01', 'xmin': 0, 'xmax': 1, 'unit': 'frac', 'color': 'black', 'line_width':1.5, 'fill': False, 'fill_direction': 'right_to_left', 'fill_alpha': 1, 'curve_mnems': ['VSH']},
+            'curve_category_01c': {'name': 'Open Perforation', 'bin': 'Bin01', 'xmin': 10, 'xmax': 0, 'unit': 'Flag', 'color': 'black', 'line_width':1.5, 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 1, 'curve_mnems': ['Perf_open']},
+            'curve_category_01d': {'name': 'Closed Perforation', 'bin': 'Bin01', 'xmin': 10, 'xmax': 0, 'unit': 'Flag', 'color': 'red', 'line_width':1.5, 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 1, 'curve_mnems': ['Perf_closed']},
+            'curve_category_02a': {'name': 'Shallow Resistivity', 'bin': 'Bin02', 'xmin': 0.2, 'xmax': 20000, 'unit': 'ohm.m', 'color': 'grey', 'line_width':1.5, 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['RES', 'RESS', 'RESM']},
+            'curve_category_02b': {'name': 'Deep Resistivity', 'bin': 'Bin02', 'xmin': 0.2, 'xmax': 20000, 'unit': 'ohm.m', 'color': 'black', 'line_width':1.5, 'fill': True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['RESD']},
+            'curve_category_03a': {'name': 'Neutron Porosity', 'bin': 'Bin03', 'xmin': -0.15, 'xmax': 0.45, 'unit': 'fraction', 'color': 'blue', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['NPHI', 'NPOR', 'NPSS', 'NPLS', 
                                                                                                                                        'NPDL']},
-            'curve_category_03b': {'name': 'Bulk Density', 'bin': 'Bin03', 'xmin': 1.9, 'xmax': 2.65, 'unit': 'g/cc', 'color': 'black','fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['RHOB']},
-            'curve_category_03c': {'name': 'Bit Size', 'bin': 'Bin03', 'xmin': 7, 'xmax': 15, 'unit': 'inches', 'color': 'purple','fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['BS']},
-            'curve_category_03d': {'name': 'Caliper', 'bin': 'Bin03', 'xmin': 7, 'xmax': 15, 'unit': 'inches', 'color': 'orange','fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['CAL', 'CALI']},
-            'curve_category_03e': {'name': 'Density Correction', 'bin': 'Bin03', 'xmin': 0, 'xmax': 1, 'unit': 'g/cc', 'color': 'blue','fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['DRHO']},
-            'curve_category_03f': {'name': 'Density Porosity', 'bin': 'Bin03', 'xmin': -0.15, 'xmax': 0.45, 'unit': 'fraction', 'color': 'red','fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['PHIDSS_RHOB_CALC', 'PHID', 'PHISS',]},
-            'curve_category_04': {'name': 'Water Saturation', 'bin': 'Bin04', 'xmin': 1, 'xmax': 0, 'unit': 'fraction', 'color': 'green', 'fill': True, 'fill_direction': 'right_to_left', 'fill_alpha': 0.5, 'curve_mnems': ['SWE', 'SW']},
-            'curve_category_05': {'name': 'Sonic', 'bin': 'Bin05', 'xmin': 50, 'xmax': 200, 'unit': 'us/f', 'color': 'black', 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['DT', 'DTC', 'DTS']},
+            'curve_category_03b': {'name': 'Bulk Density', 'bin': 'Bin03', 'xmin': 1.9, 'xmax': 2.65, 'unit': 'g/cc', 'color': 'black', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['RHOB']},
+            'curve_category_03c': {'name': 'Bit Size', 'bin': 'Bin03', 'xmin': 7, 'xmax': 15, 'unit': 'inches', 'color': 'purple', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['BS']},
+            'curve_category_03d': {'name': 'Caliper', 'bin': 'Bin03', 'xmin': 7, 'xmax': 15, 'unit': 'inches', 'color': 'orange', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['CAL', 'CALI']},
+            'curve_category_03e': {'name': 'Density Correction', 'bin': 'Bin03', 'xmin': 0, 'xmax': 1, 'unit': 'g/cc', 'color': 'blue', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['DRHO']},
+            'curve_category_03f': {'name': 'Density Porosity', 'bin': 'Bin03', 'xmin': -0.15, 'xmax': 0.45, 'unit': 'fraction', 'color': 'red', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['PHIDSS_RHOB_CALC', 'PHID', 'PHISS']},
+            'curve_category_04': {'name': 'Water Saturation', 'bin': 'Bin04', 'xmin': 1, 'xmax': 0, 'unit': 'fraction', 'color': 'green', 'line_width':1.5, 'fill': True, 'fill_direction': 'right_to_left', 'fill_alpha': 0.5, 'curve_mnems': ['SWE', 'SW']},
+            'curve_category_05': {'name': 'Sonic', 'bin': 'Bin05', 'xmin': 50, 'xmax': 200, 'unit': 'us/f', 'color': 'black', 'line_width':1.5, 'fill': False, 'fill_direction': None, 'fill_alpha': None, 'curve_mnems': ['DT', 'DTC', 'DTS']},
             # 'curve_category_5': {'name': 'Mud Gases', 'bin': 'Bin5', 'xmin': 1, 'xmax': 10000, 'unit': 'ppm', 'color': 'black', 'fill'=True, 'curve_mnems': ['C1_GAS', 'C2_GAS', 'C3_GAS', 'IC4_GAS', 'IC5_GAS', 
             #                                                                                                          'NC5_GAS', 'TOTALGAS', 'NC4_GAS']},
-            'curve_category_06a': {'name': 'C1 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'red', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['C1_GAS']},
-            'curve_category_06b': {'name': 'C2 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'green', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['C2_GAS']},
-            'curve_category_06c': {'name': 'C3 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'turquoise', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['C3_GAS']},
-            'curve_category_06d': {'name': 'iC4 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'orange', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['IC4_GAS']},
-            'curve_category_06e': {'name': 'nC4 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'deeppink', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['NC4_GAS']},
-            'curve_category_06f': {'name': 'iC5 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'darkorchid', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['IC5_GAS']},
-            'curve_category_06g': {'name': 'nC5 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'blue', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['NC5_GAS']},
-            'curve_category_07': {'name': 'Oil show', 'bin': 'Bin07', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'brown', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.5, 'curve_mnems': ['OIL_SHOW', 'OIL SHOW', 'OIL_SHOW_BINARY']},
-            'curve_category_08a': {'name': 'Wetness Ratio', 'bin': 'Bin08', 'xmin': 0.1, 'xmax': 200, 'unit': 'frac', 'color': 'blue', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['WETNESS_RATIO']},
-            'curve_category_08b': {'name': 'Balance Ratio', 'bin': 'Bin08', 'xmin': 0.1, 'xmax': 200, 'unit': 'frac', 'color': 'red', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['BALANCE_RATIO']},
-            'curve_category_08c': {'name': 'Character Ratio', 'bin': 'Bin08', 'xmin': 0.1, 'xmax': 200, 'unit': 'frac', 'color': 'green', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['CHARACTER_RATIO']},
-            'curve_category_09': {'name': 'Logistic Regression_Predictions', 'bin': 'Bin09', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['Logistic Regression_Predictions']},
-            'curve_category_10': {'name': 'Random Forest Classifier_Predictions', 'bin': 'Bin10', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.6, 'curve_mnems': ['Random Forest Classifier_Predictions']},
-            'curve_category_11': {'name': 'Gradient Boosting Classifier_Predictions', 'bin': 'Bin11', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['Gradient Boosting Classifier_Predictions']},
-            'curve_category_12': {'name': 'XGBoost Classifier_Predictions', 'bin': 'Bin12', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['XGBoost Classifier_Predictions']},
-            'curve_category_13': {'name': 'Neural Network Classifier_Predictions', 'bin': 'Bin13', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['Neural Network Classifier_Predictions']},
-            'curve_category_14': {'name': 'SVM Classifier_Predictions', 'bin': 'Bin14', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['SVM Classifier_Predictions']},
-            'curve_category_15': {'name': 'KNN Classifier_Predictions', 'bin': 'Bin15', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['KNN Classifier_Predictions']},
-            'curve_category_16': {'name': 'C2 Oil Show Indicator', 'bin': 'Bin16', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['C2 Oil Show Indicator']},
-            'curve_category_17': {'name': 'Gradational Flag', 'bin': 'Bin17', 'xmin': 0, 'xmax': 1, 'unit': 'Flag', 'color': 'white', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['Gradational_flag']},
-            'curve_category_18': {'name': 'Generic Flag', 'bin': 'Bin18', 'xmin': 0, 'xmax': 2, 'unit': 'Flag', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.5, 'curve_mnems': ['Flag']},
-            'curve_category_19': {'name': 'Kmeans Cluster Label', 'bin': 'Bin19', 'xmin': 0, 'xmax': 1, 'unit': 'Flag', 'color': 'black', 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['KMeans_Category', 'Cluster_label', 'Category_code']},
-            'curve_category_97': {'name': 'RHOB Rate Change', 'bin': 'Bin99', 'xmin': -0.5, 'xmax': 0.5, 'unit': 'g/(cc*ft)', 'color': 'black', 'fill':False, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['RHOB_rate']},
-            'curve_category_98': {'name': 'ResD Rate Change', 'bin': 'Bin98', 'xmin': -0.5, 'xmax': 0.5, 'unit': 'ohm.m/ft', 'color': 'black', 'fill':False, 'fill_direction': 'left_to_right','fill_alpha': None, 'curve_mnems': ['RESD_LOG10_rate']},
-            'curve_category_99': {'name': 'ResD / RHOB Rate Change', 'bin': 'Bin97', 'xmin': -500, 'xmax': 500, 'unit': 'ohm.m/ft / g/(cc*ft)', 'color': 'black', 'fill':False, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['dRhoB_div_dRes10_LOG10']},
+            'curve_category_06a': {'name': 'C1 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'red', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['C1_GAS']},
+            'curve_category_06b': {'name': 'C2 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'green', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['C2_GAS']},
+            'curve_category_06c': {'name': 'C3 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'turquoise', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['C3_GAS']},
+            'curve_category_06d': {'name': 'iC4 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'orange', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['IC4_GAS']},
+            'curve_category_06e': {'name': 'nC4 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'deeppink', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['NC4_GAS']},
+            'curve_category_06f': {'name': 'iC5 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'darkorchid', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['IC5_GAS']},
+            'curve_category_06g': {'name': 'nC5 Gas', 'bin': 'Bin06', 'xmin': 0.1, 'xmax': 10000, 'unit': 'ppm', 'color': 'blue', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['NC5_GAS']},
+            'curve_category_07': {'name': 'Oil show', 'bin': 'Bin07', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'brown', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.5, 'curve_mnems': ['OIL_SHOW', 'OIL SHOW', 'OIL_SHOW_BINARY']},
+            'curve_category_08a': {'name': 'Wetness Ratio', 'bin': 'Bin08', 'xmin': 0.1, 'xmax': 200, 'unit': 'frac', 'color': 'blue', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['WETNESS_RATIO']},
+            'curve_category_08b': {'name': 'Balance Ratio', 'bin': 'Bin08', 'xmin': 0.1, 'xmax': 200, 'unit': 'frac', 'color': 'red', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['BALANCE_RATIO']},
+            'curve_category_08c': {'name': 'Character Ratio', 'bin': 'Bin08', 'xmin': 0.1, 'xmax': 200, 'unit': 'frac', 'color': 'green', 'line_width':1.5,  'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['CHARACTER_RATIO']},
+            'curve_category_09': {'name': 'Logistic Regression_Predictions', 'bin': 'Bin09', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.2, 'curve_mnems': ['Logistic Regression_Predictions']},
+            'curve_category_10': {'name': 'Random Forest Classifier_Predictions', 'bin': 'Bin10', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.6, 'curve_mnems': ['Random Forest Classifier_Predictions']},
+            'curve_category_11': {'name': 'Gradient Boosting Classifier_Predictions', 'bin': 'Bin11', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black','line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['Gradient Boosting Classifier_Predictions']},
+            'curve_category_12': {'name': 'XGBoost Classifier_Predictions', 'bin': 'Bin12', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black','line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['XGBoost Classifier_Predictions']},
+            'curve_category_13': {'name': 'Neural Network Classifier_Predictions', 'bin': 'Bin13', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black','line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['Neural Network Classifier_Predictions']},
+            'curve_category_14': {'name': 'SVM Classifier_Predictions', 'bin': 'Bin14', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['SVM Classifier_Predictions']},
+            'curve_category_15': {'name': 'KNN Classifier_Predictions', 'bin': 'Bin15', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['KNN Classifier_Predictions']},
+            'curve_category_16': {'name': 'C2 Oil Show Indicator', 'bin': 'Bin16', 'xmin': 0, 'xmax': 2, 'unit': 'Show Quality', 'color': 'black', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right','fill_alpha': 0.6, 'curve_mnems': ['C2 Oil Show Indicator']},
+            'curve_category_17': {'name': 'Gradational Flag', 'bin': 'Bin17', 'xmin': 0, 'xmax': 1, 'unit': 'Flag', 'color': 'white', 'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['Gradational_flag']},
+            'curve_category_18': {'name': 'Generic Flag', 'bin': 'Bin18', 'xmin': 0, 'xmax': 2, 'unit': 'Flag', 'color': 'black',  'line_width':1.5, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': 0.5, 'curve_mnems': ['Flag']},
+            'curve_category_19': {'name': 'Kmeans Cluster Label', 'bin': 'Bin19', 'xmin': 0, 'xmax': 1, 'unit': 'Flag', 'color': 'black', 'line_width':0, 'fill':True, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['KMeans_Category', 'Cluster_label', 'Category_code']},
+            'curve_category_97': {'name': 'RHOB Rate Change', 'bin': 'Bin99', 'xmin': -0.5, 'xmax': 0.5, 'unit': 'g/(cc*ft)', 'color': 'black', 'line_width':1.5, 'fill':False, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['RHOB_rate']},
+            'curve_category_98': {'name': 'ResD Rate Change', 'bin': 'Bin98', 'xmin': -0.5, 'xmax': 0.5, 'unit': 'ohm.m/ft', 'color': 'black', 'line_width':1.5, 'fill':False, 'fill_direction': 'left_to_right','fill_alpha': None, 'curve_mnems': ['RESD_LOG10_rate']},
+            'curve_category_99': {'name': 'ResD / RHOB Rate Change', 'bin': 'Bin97', 'xmin': -500, 'xmax': 500, 'unit': 'ohm.m/ft / g/(cc*ft)', 'color': 'black', 'line_width':1.5, 'fill':False, 'fill_direction': 'left_to_right', 'fill_alpha': None, 'curve_mnems': ['dRhoB_div_dRes10_LOG10']},
             }
 # The important details regarding each curve, including x scale (log or lin),
 # what the width of the track should be, what the name of the curve track
@@ -109,7 +109,7 @@ class Curve():
     
     #TODO Think about Curves as a child class of log... how can we inherit
     #the attributes of the Log object in this child class?
-    def __init__(self, curve_name, curve_data):
+    def __init__(self, curve_name, curve_data, **kwargs):
         
         curve_category, curve_bin = get_category_and_bin_for_curve(curve_name)
         
@@ -128,6 +128,7 @@ class Curve():
         self.scale_min = curve_params_dict['xmin']
         self.scale_max = curve_params_dict['xmax']
         self.curve_scale = curve_scale_type
+        self.line_width = kwargs.get('line_width', None)
         
         
         self.data = curve_data
@@ -674,6 +675,11 @@ def create_plot(well_log,
         DESCRIPTION.
 
     """
+    alt_label = kwargs.get('alt_label', None)
+    alt_prefix = kwargs.get('alt_prefix', None)
+    alt_suffix = kwargs.get('alt_suffix', None)
+    
+    pdb.set_trace()
     
     if well_name == None:
         try:
@@ -736,10 +742,23 @@ def create_plot(well_log,
     
     fig.suptitle(well_name, x=0, y=0, fontsize=16)
     
+    #Alternative Label
+    if alt_label:
+        fig.suptitle(alt_label, x=0, y=0, fontsize=12, horizontalalignment='right')
+    
+    save_fig_fn = f'{well_name}_plot'
+    
+    if alt_suffix:
+        save_fig_fn = f'{save_fig_fn}_{alt_suffix}'
+        
+    if alt_prefix:
+        save_fig_fn = f'{alt_prefix}_{save_fig_fn}'
+    
+    save_fig_fn = f'{save_fig_fn}.png'
     
     #Save figure, if specified
     if save_fig == True:
-        save_fig_fn = f'{well_name}_plot.png'
+        print(save_fig_fn)
         fig.savefig(save_fig_fn, bbox_inches='tight')
     
     plt.show()
@@ -937,6 +956,10 @@ def create_plot_with_df(well_log_data,
 
     """
     
+    alt_label = kwargs.get('alt_label', None)
+    alt_prefix = kwargs.get('alt_prefix', None)
+    alt_suffix = kwargs.get('alt_suffix', None)
+    
     #If well name not specified, index the first record of the 'Well_name'
     #level in the index
     try:
@@ -975,8 +998,13 @@ def create_plot_with_df(well_log_data,
     #Return the curves in the ascii dataframe that are pre-identified
     validated_curves = get_validated_curves(well_log_data)
     
+    #Define params for well log plot
+    well_log_interval = lower_depth_limit - upper_depth_limit    
+    well_log_scale = kwargs.get('well_log_scale', 240) #Check kwargs, default to 240
+    well_log_length = well_log_interval / (well_log_scale / 10) #10 is fudge factor
+    
     #Instantiate the figure object
-    fig, axs = plt.subplots(figsize = (10,40))
+    fig, axs = plt.subplots(figsize = (10, 40))
     
     axs.set_xticks([])
     axs.set_yticks([])
@@ -1002,15 +1030,18 @@ def create_plot_with_df(well_log_data,
             min_depth_label = min_depth
             try:
                 df_temp = well_log_data[well_log_data['Strat_unit_name'] == min_depth_label]
+                
+                #If the dataframe is empty, assign the well log limit to min_depth
+                if df_temp.empty:
+                    min_depth = well_log_limits[0]
+                
                 min_depth = df_temp.index.get_level_values('DEPT').min()
                 print(f'Min depth assigned from well top {min_depth_label}')
             except IndexError:
                 print('Minimum top name did not match')
                 min_depth = well_log_limits[0]
         
-        #If the dataframe is empty, assign the well log limit to min_depth
-        if df_temp.empty:
-            min_depth = well_log_limits[0]
+        
             
         
     if max_depth == None:
@@ -1020,15 +1051,17 @@ def create_plot_with_df(well_log_data,
             max_depth_label = max_depth
             try:
                 df_temp = well_log_data[well_log_data['Strat_unit_name'] == max_depth_label]
+                
+                #If the dataframe is empty, assign the well log limit to max_depth
+                if df_temp.empty:
+                    max_depth = well_log_limits[1]
+                    
                 max_depth = df_temp.index.get_level_values('DEPT').max()
                 print(f'Max depth assigned from well top {max_depth_label}')
             except IndexError:
                 print('Minimum top name did not match')
                 max_depth = well_log_limits[1]
         
-        #If the dataframe is empty, assign the well log limit to max_depth
-        if df_temp.empty:
-            max_depth = well_log_limits[1]
         
     #Use curve_depth limits to find the curve depth limits. Set the limits
     #to the well maximum and minimum if a top is not found
@@ -1047,6 +1080,11 @@ def create_plot_with_df(well_log_data,
     
     fig.suptitle(well_name, x=0, y=0, fontsize=16)
     
+    
+    
+    #Alternative Label
+    if alt_label:
+        fig.suptitle(alt_label, x=0, y=0, fontsize=12, horizontalalignment='right')
     
     # Add a new hidden axis to the left for overall y-axis ticks
     left_ax = fig.add_subplot(111, frameon=False)
@@ -1067,25 +1105,26 @@ def create_plot_with_df(well_log_data,
     left_ax.spines['right'].set_color('none')  # Hide right spine
     left_ax.spines['bottom'].set_color('none')  # Hide bottom spine
     
-    # fig.subplots_adjust(left=0.1) ##NEW 4
-    # fig.add_subplot(111, frameon=False) ##NEW 4
-    # plt.tick_params(labelcolor='none', top=False, bottom=False, left=True, right=False) ##NEW 4
-    # plt.grid(False) ##NEW 4
+
+
+
     
-    # major_tick_interval, minor_tick_interval = tick_intervals ##NEW 8
+    save_fig_fn = f'{well_name}_plot'
     
-    # plt.gca().yaxis.set_major_locator(MultipleLocator(major_tick_interval)) ##NEW 5
-    # plt.gca().yaxis.set_minor_locator(MultipleLocator(minor_tick_interval)) ##NEW 5
+    if alt_suffix:
+        save_fig_fn = f'{save_fig_fn}_{alt_suffix}'
+        
+    if alt_prefix:
+        save_fig_fn = f'{alt_prefix}_{save_fig_fn}'
     
-    # plt.gca().tick_params(which='minor', length=4, color='r') ##NEW 6
-    # plt.gca().tick_params(which='major', length=5, color='r') ##NEW 6
+    save_fig_fn = f'{save_fig_fn}.png'
     
     #Save figure, if specified
     if save_fig == True:
-
-        print(f'SaveFig {well_name}')
-        save_fig_fn = f'{well_name}_plot.png'
+        print(save_fig_fn)
         fig.savefig(save_fig_fn, bbox_inches='tight')
+
+    
     
     plt.show()
     

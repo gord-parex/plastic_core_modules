@@ -1201,7 +1201,7 @@ def plot_derivative_log_data_with_histogram(df, steps=3, screening_formation=Non
     
    
     
-def flag_large_df_with_smaller_df(large_df, small_df, flag_name='Flag'):
+def flag_large_df_with_smaller_df(large_df, small_df, flag_name='Flag', flag_value=1, reset_flag=True):
     """Create a flag column in larger dataframe based on the multiindex values
     of a smaller dataframe. This is useful to create a flag in the larger
     dataframe for all the rows that are present in the smaller dataframe."""
@@ -1209,14 +1209,30 @@ def flag_large_df_with_smaller_df(large_df, small_df, flag_name='Flag'):
     # Create a set of tuples from the multiindex of the small dataframe
     index_set = set(small_df.index)
     
-    # Initialize the flag column with 0 (indicating 'not flagged')
-    large_df[flag_name] = 0
+    if reset_flag:
+        # Initialize the flag column with 0 (indicating 'not flagged')
+        large_df[flag_name] = 0
+    else:
+        pass
    
     # Apply the flag where the index of large_df is found in the index_set
     # This can be done efficiently using the .loc accessor and the .index.isin() method
-    large_df.loc[large_df.index.isin(index_set), flag_name] = 1
+    large_df.loc[large_df.index.isin(index_set), flag_name] = flag_value
 
     return large_df
+
+def flag_large_df_with_smaller_df_categorical(large_df, small_df, small_df_flag_name='Flag', large_df_flag_name='Flag', reset_flag=True):
+    categories = pd.Categorical(small_df[small_df_flag_name]).categories
+    
+    if reset_flag == True:
+        large_df[large_df_flag_name] = 0
+    
+    for label in categories:
+        filtered_small_df = small_df[small_df[small_df_flag_name] == label]
+        large_df = flag_large_df_with_smaller_df(large_df, filtered_small_df, flag_value=label, reset_flag=False)
+        
+    return large_df
+    
     
     
 def create_new_curve(log_object, function, new_column_name='New_Column'):

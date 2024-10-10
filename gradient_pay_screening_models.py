@@ -33,16 +33,16 @@ class GachetaModels():
                                   }
     
 
-    las_maracas_gacheta_oil_pay = {'RESD': ('> 15', 4),
-                                      'RESD': ('> 20', 6),
-                                  'DELTA_PHID_PHIN': ('< 0.20', 3),
-                                  'WETNESS_RATIO': ('> 40', 1),
-                                  'WETNESS_RATIO': ('> 55', 4),
+    las_maracas_gacheta_oil_pay = {'RESD': ('> 10', 5),
+                                   'RESD': ('> 30', 5),
+                                  'DELTA_PHID_PHIN': ('< 0.23', 5),
+                                  'WETNESS_RATIO': ('> 25', 2),
+                                  'WETNESS_RATIO': ('> 50', 2),
                                   'OIL_SHOW_BINARY': ('> 0', 3),
-                                  'C3_GAS_LOG10': ('> 1', 3),
-                                  'NC4_GAS_LOG10': ('> 1', 3),
+                                  'C3_GAS_LOG10': ('> 1', 2),
+                                  'NC4_GAS_LOG10': ('> 1', 2),
                                   'NC5_GAS_LOG10': ('> 1', 2),
-                                  'NC5_GAS_LOG10': ('> 1.6', 4),
+                                  'NC5_GAS_LOG10': ('> 1.6', 2),
                                    }
 
 
